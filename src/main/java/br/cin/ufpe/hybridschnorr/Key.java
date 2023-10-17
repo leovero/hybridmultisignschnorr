@@ -1,4 +1,4 @@
-package hybridschnorr;
+package br.cin.ufpe.hybridschnorr;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,8 +16,6 @@ public class Key {
         Entity = new ArrayList<BigInteger>();
     }
     
-    
-
     public Key(BigInteger[] keys){
         Entity = new ArrayList<BigInteger>();
         for (int i = 0; i < keys.length; i++){
@@ -28,12 +26,20 @@ public class Key {
         readFromFile(path);
     }
 
-    public BigInteger get(int idx){
-        if (idx >= Entity.size()) {
-            throw new IllegalArgumentException("idx more then size");
+    public BigInteger get(int pos){
+        if (pos >= Entity.size()) {
+	    System.out.println("Size of key: " + Entity.size()); 	
+            throw new IllegalArgumentException("pos more then size");
         }
-        return Entity.get(idx);
+        return Entity.get(pos);
     }
+
+    public BigInteger set(int pos, BigInteger element){
+        if (pos >= Entity.size()) {
+            throw new IllegalArgumentException("pos more then size");
+        }
+        return Entity.set(pos, element);
+    }	
 
     public void readFromFile(String path) throws FileNotFoundException {
         Scanner scanner = new Scanner(new FileReader(path));

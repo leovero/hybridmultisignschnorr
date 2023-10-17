@@ -1,4 +1,4 @@
-package hybridschnorr;
+package br.cin.ufpe.hybridschnorr;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,9 +11,8 @@ import java.security.SecureRandom;
 
 public class Schnorr {
 	
-	//https://github.com/DimonK95/schnorr-signature/blob/master/src/Signature.java
-	
 	public static void checkSign(String path, String pathPublicKey, String pathSign) throws IOException, NoSuchAlgorithmException {
+
         System.out.println("cheking sign");
         Key PublicKey = new Key(pathPublicKey);
         Key Sign = new Key(pathSign);
